@@ -1,0 +1,300 @@
+Microchip MPLAB XC8 Compiler V2.32
+
+Linker command line:
+
+-W-3 --edf=E:\Program Files\Microchip\xc8\v2.32\pic\dat\en_msgs.txt -cn \
+  -h+dist/default/production\ESP8266_Test.X.production.sym \
+  --cmf=dist/default/production\ESP8266_Test.X.production.cmf -z -Q16F628A \
+  -oC:\Users\Mateus\AppData\Local\Temp\xcAsevo.4 --defsym=__MPLAB_BUILD=1 \
+  -Mdist/default/production/ESP8266_Test.X.production.map -E1 \
+  -ver=XC8 Compiler --acfsm=1493 -ASTACK=020h-06Fh -pstack=STACK \
+  -ACODE=00h-07FFh -ASTRCODE=00h-07FFh -ASTRING=00h-0FFhx8 \
+  -ACONST=00h-0FFhx8 -AENTRY=00h-0FFhx8 -ACOMMON=070h-07Fh \
+  -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh -ABANK2=0120h-014Fh \
+  -ARAM=020h-06Fh,0A0h-0EFh,0120h-014Fh \
+  -AABS1=020h-07Fh,0A0h-0EFh,0120h-014Fh -ASFR0=00h-01Fh -ASFR1=080h-09Fh \
+  -ASFR2=0100h-011Fh -ASFR3=0180h-01EFh -ACONFIG=02007h-02007h -DCONFIG=2 \
+  -AIDLOC=02000h-02003h -DIDLOC=2 -AEEDATA=00h-07Fh/02100h \
+  -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
+  -DENTRY=2 -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE \
+  -pcinit=CODE -pfunctab=ENTRY -k \
+  C:\Users\Mateus\AppData\Local\Temp\xcAsevo.o \
+  dist/default/production\ESP8266_Test.X.production.o 
+
+Object code version is 3.11
+
+Machine type is 16F628A
+
+
+
+                Name                               Link     Load   Length Selector   Space Scale
+C:\Users\Mateus\AppData\Local\Temp\xcAsevo.o
+                end_init                              A        A        1        8       0
+                reset_vec                             0        0        1        0       0
+                config                             2007     2007        1        0       4
+dist/default/production\ESP8266_Test.X.production.o
+                cinit                                 B        B        2        8       0
+                intentry                              4        4        6        8       0
+                config                             2007     2007        1        0       4
+                text7                                 D        D       19        8       0
+                text6                                4B       4B        D        8       0
+                text5                                6B       6B        3        8       0
+                text4                                3B       3B       10        8       0
+                text3                                58       58        8        8       0
+                text2                                60       60        7        8       0
+                text1                                26       26       15        8       0
+                maintext                             67       67        4        8       0
+                cstackCOMMON                         70       70        2       70       1
+
+TOTAL           Name                               Link     Load   Length     Space
+        CLASS   STACK          
+
+        CLASS   CODE           
+                end_init                              A        A        1         0
+                cinit                                 B        B        2         0
+                intentry                              4        4        6         0
+                reset_vec                             0        0        1         0
+                text7                                 D        D       19         0
+                text6                                4B       4B        D         0
+                text5                                6B       6B        3         0
+                text4                                3B       3B       10         0
+                text3                                58       58        8         0
+                text2                                60       60        7         0
+                text1                                26       26       15         0
+                maintext                             67       67        4         0
+
+        CLASS   STRCODE        
+
+        CLASS   STRING         
+
+        CLASS   CONST          
+
+        CLASS   ENTRY          
+
+        CLASS   COMMON         
+                cstackCOMMON                         70       70        2         1
+
+        CLASS   BANK0          
+
+        CLASS   BANK1          
+
+        CLASS   BANK2          
+
+        CLASS   RAM            
+
+        CLASS   ABS1           
+                abs_s1                               7E       7E        2         1
+
+        CLASS   SFR0           
+
+        CLASS   SFR1           
+
+        CLASS   SFR2           
+
+        CLASS   SFR3           
+
+        CLASS   CONFIG         
+                config                             2007     2007        1         4
+
+        CLASS   IDLOC          
+
+        CLASS   EEDATA         
+
+        CLASS   BANK3          
+
+
+
+SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
+
+                reset_vec                      000000  000001  000001         0       0  CODE        2
+                intentry                       000004  00006A  00006E         8       0  CODE        2
+                cstackCOMMON                   000070  000002  000072        70       1  COMMON      1
+
+
+UNUSED ADDRESS RANGES
+
+        Name                Unused          Largest block    Delta
+        BANK0            0020-006F             50           1
+        BANK1            00A0-00EF             50           1
+        BANK2            0120-014F             30           1
+        CODE             0001-0003              3           2
+                         006E-07FF            792
+        COMMON           0072-007D              C           1
+        CONST            0001-0003              3           2
+                         006E-07FF            100
+        EEDATA           2100-217F             80           2
+        ENTRY            0001-0003              3           2
+                         006E-07FF            100
+        IDLOC            2000-2003              4           2
+        RAM              0020-006F             50           1
+                         00A0-00EF             50
+                         0120-014F             30
+        SFR0             0000-001F             20           1
+        SFR1             0080-009F             20           1
+        SFR2             0100-011F             20           1
+        SFR3             0180-01EF             70           1
+        STACK            0020-006F             50           1
+        STRCODE          0001-0003              3           2
+                         006E-07FF            792
+        STRING           0001-0003              3           2
+                         006E-07FF            100
+
+                                  Symbol Table
+
+_GPIOconfig                  text6        004B
+_INTCONbits                  (abs)        000B
+_INTconfig                   text5        006B
+_MCUconfig                   text3        0058
+_OPTION_REG                  (abs)        0081
+_PIE1bits                    (abs)        008C
+_PIR1bits                    (abs)        000C
+_PORTA                       (abs)        0005
+_PORTB                       (abs)        0006
+_RCSTAbits                   (abs)        0018
+_SPBRG                       (abs)        0099
+_TRISA                       (abs)        0085
+_TRISB                       (abs)        0086
+_TXREG                       (abs)        0019
+_TXSTAbits                   (abs)        0098
+_USART_interruption          text7        000D
+_USARTconfig                 text4        003B
+__Habs1                      abs1         0000
+__Hbank0                     bank0        0000
+__Hbank1                     bank1        0000
+__Hbank2                     bank2        0000
+__Hbank3                     bank3        0000
+__Hcinit                     cinit        000D
+__Hclrtext                   clrtext      0000
+__Hcode                      code         0000
+__Hcommon                    common       0000
+__Hconfig                    config       2008
+__HcstackCOMMON              cstackCOMMON 0000
+__Heeprom_data               eeprom_data  0000
+__Hend_init                  end_init     000B
+__Hfunctab                   functab      0000
+__Hinit                      init         000A
+__Hintentry                  intentry     000A
+__Hmaintext                  maintext     0000
+__Hpowerup                   powerup      0000
+__Hram                       ram          0000
+__Hreset_vec                 reset_vec    0001
+__Hsfr0                      sfr0         0000
+__Hsfr1                      sfr1         0000
+__Hsfr2                      sfr2         0000
+__Hsfr3                      sfr3         0000
+__Hspace_0                   (abs)        006E
+__Hspace_1                   (abs)        0072
+__Hspace_2                   (abs)        0000
+__Hspace_3                   (abs)        0000
+__Hspace_4                   (abs)        400F
+__Hstack                     stack        0000
+__Hstrings                   strings      0000
+__Htext                      text         0000
+__Labs1                      abs1         0000
+__Lbank0                     bank0        0000
+__Lbank1                     bank1        0000
+__Lbank2                     bank2        0000
+__Lbank3                     bank3        0000
+__Lcinit                     cinit        000B
+__Lclrtext                   clrtext      0000
+__Lcode                      code         0000
+__Lcommon                    common       0000
+__Lconfig                    config       0000
+__LcstackCOMMON              cstackCOMMON 0000
+__Leeprom_data               eeprom_data  0000
+__Lend_init                  end_init     000A
+__Lfunctab                   functab      0000
+__Linit                      init         000A
+__Lintentry                  intentry     0004
+__Lmaintext                  maintext     0000
+__Lpowerup                   powerup      0000
+__Lram                       ram          0000
+__Lreset_vec                 reset_vec    0000
+__Lsfr0                      sfr0         0000
+__Lsfr1                      sfr1         0000
+__Lsfr2                      sfr2         0000
+__Lsfr3                      sfr3         0000
+__Lspace_0                   (abs)        0000
+__Lspace_1                   (abs)        0000
+__Lspace_2                   (abs)        0000
+__Lspace_3                   (abs)        0000
+__Lspace_4                   (abs)        0000
+__Lstack                     stack        0000
+__Lstrings                   strings      0000
+__Ltext                      text         0000
+__S0                         (abs)        006E
+__S1                         (abs)        0072
+__S2                         (abs)        0000
+__S3                         (abs)        0000
+___int_sp                    stack        0000
+___latbits                   (abs)        0000
+___sp                        stack        0000
+___stackhi                   (abs)        0000
+___stacklo                   (abs)        0000
+__end_of_GPIOconfig          text6        0058
+__end_of_INTconfig           text5        006E
+__end_of_MCUconfig           text3        0060
+__end_of_USART_interruption  text7        0026
+__end_of_USARTconfig         text4        004B
+__end_of__initialization     cinit        000B
+__end_of_main                maintext     006B
+__end_of_testBuffer          text2        0067
+__end_of_writeRS             text1        003B
+__initialization             cinit        000B
+__pcstackCOMMON              cstackCOMMON 0070
+__pintentry                  intentry     0004
+__pmaintext                  maintext     0067
+__ptext1                     text1        0026
+__ptext2                     text2        0060
+__ptext3                     text3        0058
+__ptext4                     text4        003B
+__ptext5                     text5        006B
+__ptext6                     text6        004B
+__ptext7                     text7        000D
+__size_of_GPIOconfig         (abs)        0000
+__size_of_INTconfig          (abs)        0000
+__size_of_MCUconfig          (abs)        0000
+__size_of_USART_interruption (abs)        0000
+__size_of_USARTconfig        (abs)        0000
+__size_of_main               (abs)        0000
+__size_of_testBuffer         (abs)        0000
+__size_of_writeRS            (abs)        0000
+_main                        maintext     0067
+_testBuffer                  text2        0060
+_writeRS                     text1        0026
+btemp                        (abs)        007E
+end_of_initialization        cinit        000B
+interrupt_function           intentry     0004
+intlevel0                    functab      0000
+intlevel1                    functab      0000
+intlevel2                    functab      0000
+intlevel3                    functab      0000
+intlevel4                    functab      0000
+intlevel5                    functab      0000
+reset_vec                    reset_vec    0000
+saved_w                      (abs)        007E
+start                        init         000A
+start_initialization         cinit        000B
+wtemp0                       (abs)        007E
+
+
+MODULE INFORMATION
+
+Module		Function		Class		Link	Load	Size
+shared
+		__initialization		CODE           	000B	0000	1
+
+shared estimated size: 1
+
+main.c
+		_testBuffer    		CODE           	0060	0000	7
+		_main          		CODE           	0067	0000	4
+		_GPIOconfig    		CODE           	004B	0000	13
+		_USARTconfig   		CODE           	003B	0000	16
+		_MCUconfig     		CODE           	0058	0000	8
+		_USART_interruption		CODE           	000D	0000	25
+		_INTconfig     		CODE           	006B	0000	3
+		_writeRS       		CODE           	0026	0000	21
+
+main.c estimated size: 97
+
