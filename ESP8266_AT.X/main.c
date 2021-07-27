@@ -7,19 +7,19 @@
 
 
 #include "xc8.h"
+#include <string.h>
 
 void USARTconfig(void);
 void MCUconfig(void);
 void GPIOconfig(void);
 void INTconfig(void);
-void writeRS(void);
+void USARTwrite(char value[]);
 void testBuffer(void);
 
 void main(void) {
        
     MCUconfig();
-    writeRS();
-    
+    USARTwrite("ABCDEFG");
     while(1){
         
     }
@@ -89,17 +89,16 @@ void GPIOconfig(void){
     PORTB = 0xFB;                              //Inicializa PORTB
 }
 
-void writeRS(void){
+void USARTwrite(char value[]){
     
-    TXREG = 'A';
-    testBuffer();
-    TXREG = 'B';
-    testBuffer();
+    for(int i = 0; i <= strlen(value); i++){
+        TXREG = value[i];
+        testBuffer();
+    }
     TXREG = 0x0A;
     testBuffer();
     TXREG = 0x0D;
     testBuffer();
-    
 }
 
 void testBuffer(void){

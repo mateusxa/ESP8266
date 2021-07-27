@@ -1,11 +1,11 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"12 main.c
-[; ;main.c: 12: void MCUconfig(void);
+"13 main.c
+[; ;main.c: 13: void MCUconfig(void);
 [v _MCUconfig `(v ~T0 @X0 0 ef ]
-"15
-[; ;main.c: 15: void writeRS(void);
-[v _writeRS `(v ~T0 @X0 0 ef ]
+"16
+[; ;main.c: 16: void writeRS(char value[]);
+[v _writeRS `(v ~T0 @X0 0 ef1`*uc ]
 [t ~ __interrupt . k ]
 [t T1 __interrupt ]
 "394 E:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f628a.h
@@ -37,14 +37,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "837
 [; ;E:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f628a.h: 837: extern volatile unsigned char OPTION_REG __attribute__((address(0x081)));
 [v _OPTION_REG `Vuc ~T0 @X0 0 e@129 ]
-"13 main.c
-[; ;main.c: 13: void GPIOconfig(void);
+"14 main.c
+[; ;main.c: 14: void GPIOconfig(void);
 [v _GPIOconfig `(v ~T0 @X0 0 ef ]
-"11
-[; ;main.c: 11: void USARTconfig(void);
+"12
+[; ;main.c: 12: void USARTconfig(void);
 [v _USARTconfig `(v ~T0 @X0 0 ef ]
-"14
-[; ;main.c: 14: void INTconfig(void);
+"15
+[; ;main.c: 15: void INTconfig(void);
 [v _INTconfig `(v ~T0 @X0 0 ef ]
 "1150 E:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f628a.h
 [; ;E:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f628a.h: 1150:     struct {
@@ -86,9 +86,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "753
 [; ;E:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f628a.h: 753: extern volatile unsigned char TXREG __attribute__((address(0x019)));
 [v _TXREG `Vuc ~T0 @X0 0 e@25 ]
-"16 main.c
-[; ;main.c: 16: void testBuffer(void);
+"17 main.c
+[; ;main.c: 17: void testBuffer(void);
 [v _testBuffer `(v ~T0 @X0 0 ef ]
+"56 E:\Program Files\Microchip\xc8\v2.32\pic\include\c90\string.h
+[; ;E:\Program Files\Microchip\xc8\v2.32\pic\include\c90\string.h: 56: extern size_t strlen(const char *);
+[v _strlen `(ui ~T0 @X0 0 ef1`*Cuc ]
 "316 E:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f628a.h
 [; ;E:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f628a.h: 316:     struct {
 [s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -232,18 +235,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;E:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f628a.h: 1269: __asm("VRCON equ 09Fh");
 [; <" VRCON equ 09Fh ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
-"18 main.c
-[; ;main.c: 18: void main(void) {
+"19 main.c
+[; ;main.c: 19: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"20
-[; ;main.c: 20:     MCUconfig();
-[e ( _MCUconfig ..  ]
 "21
-[; ;main.c: 21:     writeRS();
-[e ( _writeRS ..  ]
+[; ;main.c: 21:     MCUconfig();
+[e ( _MCUconfig ..  ]
+"22
+[; ;main.c: 22:     writeRS("ABCDEFG");
+[e ( _writeRS (1 :s 1C ]
 "23
 [; ;main.c: 23:     while(1){
 [e :U 53 ]
@@ -379,23 +382,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 60 ]
 }
 "92
-[; ;main.c: 92: void writeRS(void){
-[v _writeRS `(v ~T0 @X0 1 ef ]
+[; ;main.c: 92: void writeRS(char value[]){
+[v _writeRS `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _writeRS ]
+[v _value `*uc ~T0 @X0 1 r1 ]
 [f ]
 "94
-[; ;main.c: 94:     TXREG = 'A';
-[e = _TXREG -> -> 65 `ui `uc ]
+[; ;main.c: 94:     for(int i = 0; i <= strlen(value); i++){
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $U 65  ]
+[e :U 62 ]
+{
 "95
-[; ;main.c: 95:     testBuffer();
-[e ( _testBuffer ..  ]
+[; ;main.c: 95:         TXREG = value[i];
+[e = _TXREG -> *U + _value * -> _i `x -> -> # *U _value `i `x `uc ]
 "96
-[; ;main.c: 96:     TXREG = 'B';
-[e = _TXREG -> -> 66 `ui `uc ]
-"97
-[; ;main.c: 97:     testBuffer();
+[; ;main.c: 96:         testBuffer();
 [e ( _testBuffer ..  ]
+"97
+[; ;main.c: 97:     }
+}
+[e ++ _i -> 1 `i ]
+[e :U 65 ]
+[e $ <= -> _i `ui ( _strlen (1 -> _value `*Cuc 62  ]
+[e :U 63 ]
+}
 "98
 [; ;main.c: 98:     TXREG = 0x0A;
 [e = _TXREG -> -> 10 `i `uc ]
@@ -408,40 +422,41 @@ Version 4.0 HI-TECH Software Intermediate Code
 "101
 [; ;main.c: 101:     testBuffer();
 [e ( _testBuffer ..  ]
-"103
-[; ;main.c: 103: }
+"102
+[; ;main.c: 102: }
 [e :UE 61 ]
 }
-"105
-[; ;main.c: 105: void testBuffer(void){
+"104
+[; ;main.c: 104: void testBuffer(void){
 [v _testBuffer `(v ~T0 @X0 1 ef ]
 {
 [e :U _testBuffer ]
 [f ]
+"105
+[; ;main.c: 105:     while(!TXSTAbits.TRMT);
+[e $U 67  ]
+[e :U 68 ]
+[e :U 67 ]
+[e $ ! != -> . . _TXSTAbits 0 1 `i -> 0 `i 68  ]
+[e :U 69 ]
 "106
-[; ;main.c: 106:     while(!TXSTAbits.TRMT);
-[e $U 63  ]
-[e :U 64 ]
-[e :U 63 ]
-[e $ ! != -> . . _TXSTAbits 0 1 `i -> 0 `i 64  ]
-[e :U 65 ]
-"107
-[; ;main.c: 107: }
-[e :UE 62 ]
+[; ;main.c: 106: }
+[e :UE 66 ]
 }
-"109
-[; ;main.c: 109: void INTconfig(void){
+"108
+[; ;main.c: 108: void INTconfig(void){
 [v _INTconfig `(v ~T0 @X0 1 ef ]
 {
 [e :U _INTconfig ]
 [f ]
-"111
-[; ;main.c: 111:     INTCONbits.PEIE = 1;
+"110
+[; ;main.c: 110:     INTCONbits.PEIE = 1;
 [e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-"112
-[; ;main.c: 112:     INTCONbits.GIE = 1;
+"111
+[; ;main.c: 111:     INTCONbits.GIE = 1;
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"114
-[; ;main.c: 114: }
-[e :UE 66 ]
+"113
+[; ;main.c: 113: }
+[e :UE 70 ]
 }
+[a 1C 65 66 67 68 69 70 71 0 ]

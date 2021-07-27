@@ -1023,19 +1023,71 @@ extern __bank0 __bit __timeout;
 # 19 "./xc8.h" 2
 # 9 "main.c" 2
 
+# 1 "E:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\string.h" 1 3
+
+
+
+
+
+# 1 "E:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__size_t.h" 1 3
+
+
+
+typedef unsigned size_t;
+# 6 "E:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\string.h" 2 3
+
+# 1 "E:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__null.h" 1 3
+# 7 "E:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\string.h" 2 3
+
+
+
+
+
+
+
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+# 36 "E:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\string.h" 3
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+# 10 "main.c" 2
+
 
 void USARTconfig(void);
 void MCUconfig(void);
 void GPIOconfig(void);
 void INTconfig(void);
-void writeRS(void);
+void writeRS(char value[]);
 void testBuffer(void);
 
 void main(void) {
 
     MCUconfig();
-    writeRS();
-
+    writeRS("ABCDEFG");
     while(1){
 
     }
@@ -1097,17 +1149,16 @@ void GPIOconfig(void){
     PORTB = 0xFB;
 }
 
-void writeRS(void){
+void writeRS(char value[]){
 
-    TXREG = 'A';
-    testBuffer();
-    TXREG = 'B';
-    testBuffer();
+    for(int i = 0; i <= strlen(value); i++){
+        TXREG = value[i];
+        testBuffer();
+    }
     TXREG = 0x0A;
     testBuffer();
     TXREG = 0x0D;
     testBuffer();
-
 }
 
 void testBuffer(void){
